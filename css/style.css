@@ -21,11 +21,29 @@ span {
 	font-weight: bold;
 }
 
+button {
+	border: solid 1px green;
+	padding: 0.5em;
+	background-color: #216C2A;
+	color: #E0F2F1;
+	font-size: 1em;
+}
+
+button:hover {
+	cursor: pointer;
+	background-color: white;
+	color: black;
+}
+
 /* MEAL DETAILS */
 .meal-details {
 	float: left;
 	height: 24em;
 	margin-left: 15em;
+}
+
+.meal-heading {
+	margin-bottom: 2em;
 }
 
 input[type="number"] {
@@ -36,6 +54,11 @@ input[type="number"] {
 
 input[type='number']:focus {
 	border: solid 1px black;
+}
+
+.submit-container {
+	text-align: center;
+	margin-top: 2em;
 }
 
 /* CUSTOMER CHARGES */

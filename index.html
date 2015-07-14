@@ -16,13 +16,13 @@
 	<section class="meal-details">
 		<form name="myCalc" novalidate>
 			<div>
-				<h2>Enter the Meal Details</h2>
+				<h2 class="meal-heading">Enter the Meal Details</h2>
 			</div>
 
 			<div>
 				<p><span>Base Meal Price:</span> $ <input type="number" name="mealPrice" ng-model="mealPrice" step="0.01" required /></p>
 				<br />
-				<p><span>Tax Rate:</span> % <input type="number" name="taxRate" value={{taxRate}} ng-model="taxRate" required /></p>
+				<p><span>Tax Rate:</span> % <input type="number" name="taxRate" ng-model="taxRate" required /></p>
 				<br />
 				<p><span>Tip Percentage:</span> % <input type="number" name="tipPercent" ng-model="tipPercent" required /></p>
 				<br />
