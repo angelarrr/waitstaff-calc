@@ -1,0 +1,57 @@
+body {
+	font-family: 'Helvetica', Arial, sans-serif;
+}
+
+section {
+	width: 30%;
+	border: solid 1px black;
+	padding: 1em;
+}
+
+header {
+	text-align: center;
+}
+
+h2 {
+	margin-top: 0;
+	text-align: center;
+}
+
+/* MEAL DETAILS */
+.meal-details {
+	float: left;
+	height: 24em;
+	margin-left: 15em;
+}
+
+input[type="number"] {
+	outline: none;
+	padding: 0.5em;
+	width: 40%;
+}
+
+input[type='number']:focus {
+	border: solid 1px black;
+}
+
+/* CUSTOMER CHARGES */
+.customer {
+	float: right;
+	margin-right: 15em;
+	margin-bottom: 2em;
+}
+
+/* MY EARNINGS INFO */
+.earnings {
+	clear: right;
+	float: right;
+	margin-right: 15em;
+}
+
+/* RESET FOOTER */
+footer {
+	clear: both;
+	text-align: right;
+	padding-top: 3em;
+	padding-right: 5em;
+}

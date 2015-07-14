@@ -3,40 +3,67 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Waitstaff Calculator</title>
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body ng-controller="">
 	<header>
 		<h1>Waitstaff Calculator</h1>
 	</header>
 
-	<section>
+<!-- MEAL DETAILS -->
+	<section class="meal-details">
 		<form>
 			<div>
 				<h2>Enter the Meal Details</h2>
 			</div>
 
 			<div>
-				<p>
-					Base Meal Price: $ <input type="number" required />
-				</p>
-
-				<p>
-					Tax Rate: % <input type="number" required />
-				</p>
-
-				<p>
-					Tax Percentage: % <input type="number" required />
-				</p>
+				<p><span>Base Meal Price:</span> $ <input type="number" required /></p>
+				<br />
+				<p><span>Tax Rate:</span> % <input type="number" required /></p>
+				<br />
+				<p><span>Tax Percentage:</span> % <input type="number" required /></p>
+				<br />
 			</div>
 
-			<div>
+			<div class="submit-container">
 				<button type="submit">Submit</button>
 				<button>Cancel</button>
 			</div>
 		</form>
 	</section>
 
+<!-- CUSTOMER CHARGES -->
+	<section class="customer">
+		<div>
+			<h2>Customer Charges</h2>
+		</div>
 
-	
+		<div>
+			<p><span>Subtotal:</span> $ {{ }}</p>
+			<p><span>Tip:</span> $ {{ }}</p>
+			<hr />
+			<p><span>Total:</span> {{ }}</p>
+		</div>
+	</section>
+
+<!-- MY EARNINGS INFO -->
+	<section class="earnings">
+		<div>
+			<h2>My Earnings Info</h2>
+		</div>
+
+		<div>
+			<p><span>Tip total:</span> {{ }}</p>
+			<p><span>Meal count:</span> {{ }}</p>
+			<p><span>Average Tip Per Meal:</span> {{ }}</p>
+		</div>
+	</section>
+
+	<footer class="reset-container">
+		<div>
+			<button>Reset</button>
+		</div>
+	</footer>
 </body>
 </html>
