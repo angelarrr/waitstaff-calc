@@ -17,6 +17,10 @@ h2 {
 	text-align: center;
 }
 
+span {
+	font-weight: bold;
+}
+
 /* MEAL DETAILS */
 .meal-details {
 	float: left;
