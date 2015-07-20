@@ -1,4 +1,17 @@
-var app = angular.module('wsCalc', []);
+var app = angular.module('wsCalc', ['ngRoute']);
+
+app.config(['$routeProvider', function($routeProvider){
+	$routeProvider.when('/', {
+		templateUrl : 'home.html',
+		controller : 'wsController'
+	}).when('/meal', {
+		templateUrl : 'meal.html',
+		controller : 'wsController'
+	}).when('/earnings', {
+		templateUrl : 'earnings.html',
+		controller : 'wsController'
+	}).otherwise('/');
+}])
 
 app.controller('wsController', function($scope) {
 	$scope.tipTotal = 0;

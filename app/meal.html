@@ -1,0 +1,36 @@
+<!-- MEAL DETAILS -->
+<section class="meal-details">
+	<form name="myCalc" novalidate>
+		<div>
+			<h2 class="meal-heading">Enter the Meal Details</h2>
+		</div>
+
+		<div>
+			<p><span>Base Meal Price:</span> $ <input type="number" name="mealPrice" ng-model="mealPrice" step="0.01" required /></p>
+			<br />
+			<p><span>Tax Rate:</span> % <input type="number" name="taxRate" ng-model="taxRate" required /></p>
+			<br />
+			<p><span>Tip Percentage:</span> % <input type="number" name="tipPercent" ng-model="tipPercent" required /></p>
+			<br />
+		</div>
+
+		<div class="submit-container">
+			<button type="submit" ng-click="submit()">Submit</button>
+			<button type="reset" class="cancel" ng-click="cancel()">Cancel</button>
+		</div>
+	</form>
+</section>
+
+<!-- CUSTOMER CHARGES -->
+<section class="customer">
+	<div>
+		<h2>Customer Charges</h2>
+	</div>
+
+	<div>
+		<p><span>Subtotal:</span> {{ subtotal | currency }}</p>
+		<p><span>Tip:</span> {{ tipAmount | currency }}</p>
+		<hr />
+		<p><span>Total:</span> {{ mealTotal | currency }}</p>
+	</div>
+</section>
