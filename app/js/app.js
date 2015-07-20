@@ -1,5 +1,19 @@
 var app = angular.module('wsCalc', ['ngRoute']);
 
+app.run(function($rootScope, $location, $timeout) {
+	$rootScope.$on('$routeChangeError', function() {
+		$location.path("/error");
+	});
+	$rootScope.$on('$routeChangeStart', function() {
+        $rootScope.isLoading = true;
+	});
+	$rootScope.$on('$routeChangeSuccess', function() {
+		$timeout(function() {
+			$rootScope.isLoading = false;
+		}, 1000);
+	});
+})
+
 app.config(['$routeProvider', function($routeProvider){
 	$routeProvider.when('/', {
 		templateUrl : 'home.html',
@@ -13,7 +27,7 @@ app.config(['$routeProvider', function($routeProvider){
 	}).otherwise('/');
 }])
 
-app.controller('wsController', function($scope) {
+app.controller('wsController', ['$scope', function($scope) {
 	$scope.meal = {};
 	$scope.customer = {};
 	$scope.earnings = {};
@@ -47,4 +61,4 @@ app.controller('wsController', function($scope) {
 		$scope.earnings = {};
 		$scope.cancel();
 	};
-});
+}]);
