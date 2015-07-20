@@ -65,11 +65,11 @@ li {
 
 /* MEAL DETAILS */
 .meal-details {
-	height: 24em;
+	height: 21em;
 }
 
 .meal-heading {
-	margin-bottom: 2em;
+	margin-bottom: 1em;
 }
 
 input[type="number"] {
@@ -84,10 +84,15 @@ input[type='number']:focus {
 
 .submit-container {
 	text-align: center;
+	margin-top: 1em;
+}
+
+.customer {
 	margin-top: 2em;
 }
 
 /* RESET FOOTER */
 .reset-container {
 	padding-top: 3em;
+	border: none;
 }
