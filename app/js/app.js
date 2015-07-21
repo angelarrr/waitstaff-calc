@@ -39,9 +39,6 @@ app.factory('data', function(){
 })
 
 app.controller('wsController', ['$scope', '$route', 'data', function($scope, $route, data) {
-	$scope.subtotal = data.subtotal;
-	$scope.tipAmount = data.tipAmount;
-	$scope.mealTotal = data.mealTotal;
 	$scope.tipTotal = data.tipTotal;
 	$scope.mealCount = data.mealCount;
 	$scope.avgTip = data.avgTip;
@@ -51,23 +48,13 @@ app.controller('wsController', ['$scope', '$route', 'data', function($scope, $ro
 		if($scope.myCalc.$valid) {
 			// customer charges
 			$scope.subtotal = $scope.mealPrice * (1 + ($scope.taxRate/100));
-			data.subtotal = $scope.subtotal;
-
 			$scope.tipAmount = $scope.mealPrice*($scope.tipPercent/100);
-			data.tipAmount = $scope.tipAmount;
-
 			$scope.mealTotal = $scope.subtotal + $scope.tipAmount;
-			data.mealTotal = $scope.mealTotal;
 
 			// earnings
-			$scope.tipTotal += $scope.tipAmount;
-			data.tipTotal = $scope.tipTotal;
-
-			$scope.mealCount += 1
-			data.mealCount = $scope.mealCount;
-
-			$scope.avgTip = $scope.tipTotal/$scope.mealCount;
-			data.avgTip = $scope.avgTip;
+			data.tipTotal += $scope.tipAmount;
+			data.mealCount += 1
+			data.avgTip = data.tipTotal/data.mealCount;
 
 			$scope.cancel();
 		} else {
