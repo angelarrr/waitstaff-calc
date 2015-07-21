@@ -123,7 +123,7 @@ input[type='number']:focus {
 }
 
 .animate-view.ng-enter, .animate-view.ng-leave {
-	transition: 1s linear all;
+	transition: 1s ease-in all;
 	position: absolute;
 	top: 0;
 	left: 0;

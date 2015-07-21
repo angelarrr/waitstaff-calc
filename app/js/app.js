@@ -27,24 +27,49 @@ app.config(['$routeProvider', function($routeProvider){
 	}).otherwise('/');
 }])
 
-app.controller('wsController', ['$scope', function($scope) {
-	$scope.meal = {};
-	$scope.customer = {};
-	$scope.earnings = {};
+app.factory('data', function(){
+	return {
+		subtotal: 0,
+		tipAmount: 0,
+		mealTotal: 0,
+		tipTotal: 0,
+		mealCount: 0,
+		avgTip: 0
+	}
+})
+
+app.controller('wsController', ['$scope', '$route', 'data', function($scope, $route, data) {
+	$scope.subtotal = data.subtotal;
+	$scope.tipAmount = data.tipAmount;
+	$scope.mealTotal = data.mealTotal;
+	$scope.tipTotal = data.tipTotal;
+	$scope.mealCount = data.mealCount;
+	$scope.avgTip = data.avgTip;
 
 	/* submit function */
 	$scope.submit = function() {
 		if($scope.myCalc.$valid) {
+			// customer charges
+			$scope.subtotal = $scope.mealPrice * (1 + ($scope.taxRate/100));
+			data.subtotal = $scope.subtotal;
 
-			$scope.customer.subtotal = $scope.meal.price * (1 + ($scope.meal.taxRate/100));
-			$scope.customer.tip = $scope.meal.price*($scope.meal.tipPercent/100);
-			$scope.customer.total = $scope.customer.subtotal + $scope.customer.tip;
+			$scope.tipAmount = $scope.mealPrice*($scope.tipPercent/100);
+			data.tipAmount = $scope.tipAmount;
 
-			$scope.earnings.tips += $scope.customer.tip;
-			$scope.earnings.mealCount += 1
-			$scope.earnings.avgTip = $scope.earnings.tips/$scope.earnings.mealCount;
+			$scope.mealTotal = $scope.subtotal + $scope.tipAmount;
+			data.mealTotal = $scope.mealTotal;
 
-			$scope.meal = {};
+			// earnings
+			$scope.tipTotal += $scope.tipAmount;
+			data.tipTotal = $scope.tipTotal;
+
+			$scope.mealCount += 1
+			data.mealCount = $scope.mealCount;
+
+			$scope.avgTip = $scope.tipTotal/$scope.mealCount;
+			data.avgTip = $scope.avgTip;
+
+			$scope.cancel();
 		} else {
 			console.log("form not valid");
 		}
@@ -52,13 +77,20 @@ app.controller('wsController', ['$scope', function($scope) {
 
 	/* reset function for enter meal details */
 	$scope.cancel = function() {
-		$scope.meal = {};
-		$scope.customer = {};
+		$scope.mealPrice = "";
+		$scope.taxRate = "";
+		$scope.tipPercent = "";
 	};
 
 	/* reset all values */
 	$scope.reset = function() {
-		$scope.earnings = {};
+		data.subtotal = 0;
+		data.tipAmount = 0;
+		data.mealTotal=0;
+		data.tipTotal = 0;
+		data.mealCount = 0;
+		data.avgTip = 0;
 		$scope.cancel();
+		$route.reload();
 	};
 }]);

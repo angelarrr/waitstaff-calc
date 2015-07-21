@@ -6,11 +6,11 @@
 		</div>
 
 		<div>
-			<p><span>Base Meal Price:</span> $ <input type="number" name="meal.price" ng-model="meal.price" step="0.01" required /></p>
+			<p><span>Base Meal Price:</span> $ <input type="number" name="mealPrice" ng-model="mealPrice" step="0.01" required /></p>
 			<br />
-			<p><span>Tax Rate:</span> % <input type="number" name="meal.taxRate" ng-model="meal.taxRate" required /></p>
+			<p><span>Tax Rate:</span> % <input type="number" name="taxRate" ng-model="taxRate" required /></p>
 			<br />
-			<p><span>Tip Percentage:</span> % <input type="number" name="meal.tipPercent" ng-model="meal.tipPercent" required /></p>
+			<p><span>Tip Percentage:</span> % <input type="number" name="tipPercent" ng-model="tipPercent" required /></p>
 			<br />
 		</div>
 
@@ -28,9 +28,9 @@
 	</div>
 
 	<div>
-		<p><span>Subtotal:</span> {{ customer.subtotal | currency }}</p>
-		<p><span>Tip:</span> {{ customer.tip | currency }}</p>
+		<p><span>Subtotal:</span> {{ subtotal | currency }}</p>
+		<p><span>Tip:</span> {{ tipAmount | currency }}</p>
 		<hr />
-		<p><span>Total:</span> {{ customer.total | currency }}</p>
+		<p><span>Total:</span> {{ mealTotal | currency }}</p>
 	</div>
 </section>
