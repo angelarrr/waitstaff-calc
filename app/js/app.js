@@ -1,4 +1,4 @@
-var app = angular.module('wsCalc', ['ngRoute']);
+var app = angular.module('wsCalc', ['ngRoute', 'ngAnimate']);
 
 app.run(function($rootScope, $location, $timeout) {
 	$rootScope.$on('$routeChangeError', function() {
